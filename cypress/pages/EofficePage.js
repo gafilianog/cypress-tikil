@@ -27,12 +27,12 @@ const fillKehadiran = (clockOut, clockIn, dateDiff, reason, witness, comment) =>
 }
 
 const chooseDate = (date) => {
-    cy.get('span[aria-controls="DateFrom_dateview"]').click()
+    cy.get('span[aria-controls="DateFrom_dateview"]').click({force: true})
     cy.get(`[data-value="${date}"]`).click()
 }
 
 const chooseWitness = (witness) => {
-    cy.get('[aria-owns="WitnessId_listbox"]').click()
+    cy.get('[aria-owns="WitnessId_listbox"]').click({force: true})
     cy.contains(witness).click()
 }
 

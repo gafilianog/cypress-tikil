@@ -1,7 +1,7 @@
 {
    "lambdatest_auth": {
-      "username": "<Your LambdaTest username>",
-      "access_key": "<Your LambdaTest access key>"
+      "username": "gafiliano",
+      "access_key": "OGDitEC0lE29shnrFw5hcgZoNlDZwHEbEdLQaKdBkbEIG5VRZ5"
    },
    "browsers": [
       {
@@ -10,21 +10,15 @@
          "versions": [
             "latest-1"
          ]
-      },
-      {
-         "browser": "Firefox",
-         "platform": "Windows 10",
-         "versions": [
-            "latest-1"
-         ]
       }
    ],
    "run_settings": {
       "reporter_config_file": "base_reporter_config.json",
-      "build_name": "build-name",
+      "build_name": "E-Office",
       "parallels": 1,
-      "specs": "<path_of_cypress_spec_files>",
+      "specs": "**/*.cy.js",
       "ignore_files": "",
+      "timezone": "Asia/Jakarta",
       "network": false,
       "headless": false,
       "npm_dependencies": {

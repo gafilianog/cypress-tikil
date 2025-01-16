@@ -15,3 +15,25 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
+
+Cypress.on('test:before:run', () => {
+    Cypress.automation('remote:debugger:protocol', {
+        command: 'Emulation.setLocaleOverride',
+        params: {
+            locale: 'id-ID',
+        },
+    });
+});
+
+Cypress.on('test:before:run', () => {
+    Cypress.automation('remote:debugger:protocol', {
+        command: 'Emulation.setTimezoneOverride',
+        params: {
+            timezoneId: 'Asia/Jakarta', // OR  'UTC'
+        },
+    });
+});
