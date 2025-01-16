@@ -1,0 +1,24 @@
+{
+  "name": "cypress-tikil",
+  "version": "1.0.0",
+  "description": "Timesheet Gokil",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gafilianog/cypress-tikil.git"
+  },
+  "author": "Gafiliano Gapili",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gafilianog/cypress-tikil/issues"
+  },
+  "homepage": "https://github.com/gafilianog/cypress-tikil#readme",
+  "dependencies": {
+    "cypress": "^13.17.0"
+  }
+}
