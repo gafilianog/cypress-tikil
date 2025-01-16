@@ -1,8 +1,4 @@
 {
-   "lambdatest_auth": {
-      "username": "gafiliano",
-      "access_key": "OGDitEC0lE29shnrFw5hcgZoNlDZwHEbEdLQaKdBkbEIG5VRZ5"
-   },
    "browsers": [
       {
          "browser": "Chrome",
