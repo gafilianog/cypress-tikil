@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/gafilianog/cypress-tikil#readme",
   "dependencies": {
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "cypress-dotenv": "^3.0.1",
+    "dotenv": "^16.4.7"
   }
 }
