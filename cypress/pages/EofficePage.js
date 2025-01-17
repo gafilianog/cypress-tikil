@@ -6,10 +6,9 @@ const navigateToMenu = (menu) => {
     cy.get(`.k-link`).contains(menu).click()
 }
 
-const fillKehadiran = (clockOut, clockIn, dateDiff, reason, witness, comment) => {
+const fillKehadiran = (clockOut, clockIn, dateDiff, reason, witness, reviewer1, reviewer2, isSubmit, comment) => {
     clockOut = (clockOut === 'DEFAULT') ? getCurrTime() : clockOut
 
-    console.log(clockOut)
     cy.get('#JamPulang').type(clockOut)
     cy.get('#Hour').type(clockIn)
     chooseDate(getDate(dateDiff))
@@ -17,12 +16,13 @@ const fillKehadiran = (clockOut, clockIn, dateDiff, reason, witness, comment) =>
     cy.get('#Reason').type(reason)
     cy.wait(1000)
     chooseWitness(witness)
-    chooseReviewer1(Cypress.env('DEFAULT_REVIEWER1'))
-    chooseReviewer2(Cypress.env('DEFAULT_REVIEWER2'))
-    if (Cypress.env('IS_SUBMIT')) {
+    chooseReviewer1(reviewer1)
+    chooseReviewer2(reviewer2)
+    if (isSubmit) {
         cy.get('#btnSubmit').click()
         cy.get('#CommentText').type(comment)
-        cy.get('#btnSubmit2').click()
+        // cy.get('#btnSubmit2').click()
+        cy.get('#btnCancel2').click()
     }
 }
 
