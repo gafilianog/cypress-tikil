@@ -1,0 +1,78 @@
+name: Cypress Auto-Present E-Office
+
+on:
+  workflow_dispatch:
+    inputs:
+      npp:
+        description: 'Your NPP to login eoffice'
+        required: true
+        type: string
+      password:
+        description: 'Password to login eoffice'
+        required: true
+        type: string
+      clock_out:
+        description: 'Time when you clock out 17:00 format'
+        required: true
+        default: 'DEFAULT'
+        type: string
+      clock_in:
+        description: 'Time when you clock in 7:00 format'
+        required: true
+        type: string
+      date_diff:
+        description: '-1 for yesterday 0 for today'
+        required: true
+        default: '0'
+        type: string
+      reason:
+        description: 'Reason of creating hadir'
+        required: true
+        default: 'E-Absensi tidak dapat digunakan'
+        type: string
+      witness:
+        description: 'Your SPV, NPP - NAME, look in e-office'
+        required: true
+        type: string
+      reviewer1:
+        description: 'Reviewer 1'
+        required: true
+        type: string
+      reviewer2:
+        description: 'Reviewer 2'
+        required: true
+        type: string
+      comment:
+        description: 'Your comment when submit kehadiran'
+        required: true
+        default: 'Mohon approvalnya mas, terima kasih'
+        type: string
+
+jobs:
+  cypress-run:
+    name: Running Cypress Auto-Present Job
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Create env file
+        run: |
+          touch .env
+          echo IS_SUBMIT=false > .env
+          echo NPP='${{ inputs.npp }}' > .env
+          echo PASSWORD='${{ inputs.password }}' > .env
+          echo CLOCK_OUT='${{ inputs.clock_out }}' > .env
+          echo CLOCK_IN='${{ inputs.clock_in }}' > .env
+          echo DATE_DIFF=${{ inputs.date_diff }} > .env
+          echo REASON='${{ inputs.reason }}' > .env
+          echo WITNESS='${{ inputs.witness }}' > .env
+          echo REVIEWER1='${{ inputs.reviewer1 }}' > .env
+          echo REVIEWER2='${{ inputs.reviewer2 }}' > .env
+          echo COMMENT='${{ inputs.comment }}' > .env
+          cat .env
+      - name: Cypress.io
+      # You may pin to the exact commit or the version.
+      # uses: cypress-io/github-action@59810ebfa5a5ac6fcfdcfdf036d1cd4d083a88f2
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          browser: chrome
