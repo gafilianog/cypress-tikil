@@ -58,17 +58,17 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo IS_SUBMIT=false > .env
-          echo NPP='${{ inputs.npp }}' > .env
-          echo PASSWORD='${{ inputs.password }}' > .env
-          echo CLOCK_OUT='${{ inputs.clock_out }}' > .env
-          echo CLOCK_IN='${{ inputs.clock_in }}' > .env
-          echo DATE_DIFF=${{ inputs.date_diff }} > .env
-          echo REASON='${{ inputs.reason }}' > .env
-          echo WITNESS='${{ inputs.witness }}' > .env
-          echo REVIEWER1='${{ inputs.reviewer1 }}' > .env
-          echo REVIEWER2='${{ inputs.reviewer2 }}' > .env
-          echo COMMENT='${{ inputs.comment }}' > .env
+          echo IS_SUBMIT=false >> .env
+          echo NPP='${{ inputs.npp }}' >> .env
+          echo PASSWORD='${{ inputs.password }}' >> .env
+          echo CLOCK_OUT='${{ inputs.clock_out }}' >> .env
+          echo CLOCK_IN='${{ inputs.clock_in }}' >> .env
+          echo DATE_DIFF=${{ inputs.date_diff }} >> .env
+          echo REASON='${{ inputs.reason }}' >> .env
+          echo WITNESS='${{ inputs.witness }}' >> .env
+          echo REVIEWER1='${{ inputs.reviewer1 }}' >> .env
+          echo REVIEWER2='${{ inputs.reviewer2 }}' >> .env
+          echo COMMENT='${{ inputs.comment }}' >> .env
           cat .env
       - name: Cypress.io
       # You may pin to the exact commit or the version.
