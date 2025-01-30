@@ -61,6 +61,8 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm ci
+      - name: Install ld
+        run: npm install -g lambdatest-cypress-cli
       # - name: RUN!!
       #   run: |
       #     npm ci
