@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
-    "run_lt": "lambdatest-cypress run --username=gafiliano --ak=t6SgwmS6HCRr9eipfL93I789mxKB5JizQScUF3NiFA6jOiw9LH"
   },
   "repository": {
     "type": "git",
