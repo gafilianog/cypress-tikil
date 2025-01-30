@@ -11,20 +11,20 @@ on:
         description: 'Password to login eoffice'
         required: true
         type: string
-      # clock_out:
-      #   description: 'Time when you clock out 17:00 format'
-      #   required: true
-      #   default: 'DEFAULT'
-      #   type: string
-      # clock_in:
-      #   description: 'Time when you clock in 7:00 format'
-      #   required: true
-      #   type: string
-      # date_diff:
-      #   description: '-1 for yesterday 0 for today'
-      #   required: true
-      #   default: '0'
-      #   type: string
+      clock_out:
+        description: 'Time when you clock out 17:00 format'
+        required: true
+        default: 'DEFAULT'
+        type: string
+      clock_in:
+        description: 'Time when you clock in 7:00 format'
+        required: true
+        type: string
+      date_diff:
+        description: '-1 for yesterday 0 for today'
+        required: true
+        default: '0'
+        type: string
       # reason:
       #   description: 'Reason of creating hadir'
       #   required: true
@@ -63,26 +63,5 @@ jobs:
         run: npm ci
       - name: Install ld
         run: npm install -g lambdatest-cypress-cli
-      # - name: RUN!!
-      #   run: |
-      #     npm ci
-      #     touch .env
-      #     echo IS_SUBMIT=false >> .env
-      #     echo NPP='${{ inputs.npp }}' >> .env
-      #     echo PASSWORD='${{ inputs.password }}' >> .env
-      #     echo CLOCK_OUT='${{ inputs.clock_out }}' >> .env
-      #     echo CLOCK_IN='${{ inputs.clock_in }}' >> .env
-      #     echo DATE_DIFF=${{ inputs.date_diff }} >> .env
-      #     echo REASON='${{ inputs.reason }}' >> .env
-      #     echo WITNESS='${{ inputs.witness }}' >> .env
-      #     echo REVIEWER1='${{ inputs.reviewer1 }}' >> .env
-      #     echo REVIEWER2='${{ inputs.reviewer2 }}' >> .env
-      #     echo COMMENT='${{ inputs.comment }}' >> .env
-      #     cat .env
-      #     lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }}
       - name: Run lambdatest command
-        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }}"
-      # - name: Cypress.io
-        # uses: cypress-io/github-action@v6.5.0
-        # with:
-          # command: npm run run_lt
+        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }},CLOCK_OUT=${{ inputs.clock_out }},CLOCK_IN=${{ inputs.clock_in }},DATE_DIFF=${{ inputs.date_diff }}"
