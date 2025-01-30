@@ -25,28 +25,28 @@ on:
         required: true
         default: '0'
         type: string
-      # reason:
-      #   description: 'Reason of creating hadir'
-      #   required: true
-      #   default: 'E-Absensi tidak dapat digunakan'
-      #   type: string
-      # witness:
-      #   description: 'Your SPV, NPP - NAME, look in e-office'
-      #   required: true
-      #   type: string
-      # reviewer1:
-      #   description: 'Reviewer 1'
-      #   required: true
-      #   type: string
-      # reviewer2:
-      #   description: 'Reviewer 2'
-      #   required: true
-      #   type: string
-      # comment:
-      #   description: 'Your comment when submit kehadiran'
-      #   required: true
-      #   default: 'Mohon approvalnya mas, terima kasih'
-      #   type: string
+      reason:
+        description: 'Reason of creating hadir'
+        required: true
+        default: 'E-Absensi tidak dapat digunakan'
+        type: string
+      witness:
+        description: 'Your SPV, NPP - NAME, look in e-office'
+        required: true
+        type: string
+      reviewer1:
+        description: 'Reviewer 1'
+        required: true
+        type: string
+      reviewer2:
+        description: 'Reviewer 2'
+        required: true
+        type: string
+      comment:
+        description: 'Your comment when submit kehadiran'
+        required: true
+        default: 'Mohon approvalnya mas, terima kasih'
+        type: string
 
 jobs:
   cypress-run:
@@ -64,4 +64,4 @@ jobs:
       - name: Install ld
         run: npm install -g lambdatest-cypress-cli
       - name: Run lambdatest command
-        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }},CLOCK_OUT=${{ inputs.clock_out }},CLOCK_IN=${{ inputs.clock_in }},DATE_DIFF=${{ inputs.date_diff }}"
+        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }},CLOCK_OUT=${{ inputs.clock_out }},CLOCK_IN=${{ inputs.clock_in }},DATE_DIFF=${{ inputs.date_diff }},REASON=${{ inputs.reason }},WITNESS=${{ inputs.witness }},REVIEWER1=${{ inputs.reviewer1 }},REVIEWER2=${{ inputs.reviewer2 }},COMMENT=${{ inputs.comment }}"
