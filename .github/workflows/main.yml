@@ -11,42 +11,42 @@ on:
         description: 'Password to login eoffice'
         required: true
         type: string
-      clock_out:
-        description: 'Time when you clock out 17:00 format'
-        required: true
-        default: 'DEFAULT'
-        type: string
-      clock_in:
-        description: 'Time when you clock in 7:00 format'
-        required: true
-        type: string
-      date_diff:
-        description: '-1 for yesterday 0 for today'
-        required: true
-        default: '0'
-        type: string
-      reason:
-        description: 'Reason of creating hadir'
-        required: true
-        default: 'E-Absensi tidak dapat digunakan'
-        type: string
-      witness:
-        description: 'Your SPV, NPP - NAME, look in e-office'
-        required: true
-        type: string
-      reviewer1:
-        description: 'Reviewer 1'
-        required: true
-        type: string
-      reviewer2:
-        description: 'Reviewer 2'
-        required: true
-        type: string
-      comment:
-        description: 'Your comment when submit kehadiran'
-        required: true
-        default: 'Mohon approvalnya mas, terima kasih'
-        type: string
+      # clock_out:
+      #   description: 'Time when you clock out 17:00 format'
+      #   required: true
+      #   default: 'DEFAULT'
+      #   type: string
+      # clock_in:
+      #   description: 'Time when you clock in 7:00 format'
+      #   required: true
+      #   type: string
+      # date_diff:
+      #   description: '-1 for yesterday 0 for today'
+      #   required: true
+      #   default: '0'
+      #   type: string
+      # reason:
+      #   description: 'Reason of creating hadir'
+      #   required: true
+      #   default: 'E-Absensi tidak dapat digunakan'
+      #   type: string
+      # witness:
+      #   description: 'Your SPV, NPP - NAME, look in e-office'
+      #   required: true
+      #   type: string
+      # reviewer1:
+      #   description: 'Reviewer 1'
+      #   required: true
+      #   type: string
+      # reviewer2:
+      #   description: 'Reviewer 2'
+      #   required: true
+      #   type: string
+      # comment:
+      #   description: 'Your comment when submit kehadiran'
+      #   required: true
+      #   default: 'Mohon approvalnya mas, terima kasih'
+      #   type: string
 
 jobs:
   cypress-run:
@@ -59,27 +59,27 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with:
           node-version: 20
-      # - name: Install dependencies
-        # run: npm ci
-      - name: RUN!!
-        run: |
-          npm ci
-          touch .env
-          echo IS_SUBMIT=false >> .env
-          echo NPP='${{ inputs.npp }}' >> .env
-          echo PASSWORD='${{ inputs.password }}' >> .env
-          echo CLOCK_OUT='${{ inputs.clock_out }}' >> .env
-          echo CLOCK_IN='${{ inputs.clock_in }}' >> .env
-          echo DATE_DIFF=${{ inputs.date_diff }} >> .env
-          echo REASON='${{ inputs.reason }}' >> .env
-          echo WITNESS='${{ inputs.witness }}' >> .env
-          echo REVIEWER1='${{ inputs.reviewer1 }}' >> .env
-          echo REVIEWER2='${{ inputs.reviewer2 }}' >> .env
-          echo COMMENT='${{ inputs.comment }}' >> .env
-          cat .env
-          lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }}
-      # - name: Run lambdatest command
-        # run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }}
+      - name: Install dependencies
+        run: npm ci
+      # - name: RUN!!
+      #   run: |
+      #     npm ci
+      #     touch .env
+      #     echo IS_SUBMIT=false >> .env
+      #     echo NPP='${{ inputs.npp }}' >> .env
+      #     echo PASSWORD='${{ inputs.password }}' >> .env
+      #     echo CLOCK_OUT='${{ inputs.clock_out }}' >> .env
+      #     echo CLOCK_IN='${{ inputs.clock_in }}' >> .env
+      #     echo DATE_DIFF=${{ inputs.date_diff }} >> .env
+      #     echo REASON='${{ inputs.reason }}' >> .env
+      #     echo WITNESS='${{ inputs.witness }}' >> .env
+      #     echo REVIEWER1='${{ inputs.reviewer1 }}' >> .env
+      #     echo REVIEWER2='${{ inputs.reviewer2 }}' >> .env
+      #     echo COMMENT='${{ inputs.comment }}' >> .env
+      #     cat .env
+      #     lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }}
+      - name: Run lambdatest command
+        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }}"
       # - name: Cypress.io
         # uses: cypress-io/github-action@v6.5.0
         # with:

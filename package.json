@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
-    "run_lt": "lambdatest-cypress run --username=gafiliano --ak=nrEx33SdV6bWmS1feuBFUEP829mVP399YtJtBla9qGQWOwGKGO"
+    "run_lt": "lambdatest-cypress run --username=gafiliano --ak=t6SgwmS6HCRr9eipfL93I789mxKB5JizQScUF3NiFA6jOiw9LH"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,6 @@
   "homepage": "https://github.com/gafilianog/cypress-tikil#readme",
   "dependencies": {
     "cypress": "^13.17.0",
-    "cypress-dotenv": "^3.0.1",
-    "dotenv": "^16.4.7",
     "lambdatest-cypress-cli": "^3.0.33"
   }
 }

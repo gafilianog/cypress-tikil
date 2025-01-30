@@ -21,8 +21,8 @@ const fillKehadiran = (clockOut, clockIn, dateDiff, reason, witness, reviewer1, 
     if (isSubmit) {
         cy.get('#btnSubmit').click()
         cy.get('#CommentText').type(comment)
-        cy.get('#btnSubmit2').click()
-//        cy.get('#btnCancel2').click()
+        // cy.get('#btnSubmit2').click()
+        cy.get('#btnCancel2').click()
     }
 }
 

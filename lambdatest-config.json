@@ -16,10 +16,7 @@
       "ignore_files": "",
       "timezone": "Asia/Jakarta",
       "network": false,
-      "headless": false,
-      "npm_dependencies": {
-         "cypress": "10"
-      }
+      "headless": false
    },
    "tunnel_settings": {
       "tunnel": false,
