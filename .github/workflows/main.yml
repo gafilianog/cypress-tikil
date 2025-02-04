@@ -37,7 +37,7 @@ on:
       comment:
         description: 'Your comment when submit kehadiran'
         required: true
-        default: 'Mohon approvalnya mas, terima kasih'
+        default: 'Mohon approvalnya mas terima kasih'
         type: string
 
 jobs:
