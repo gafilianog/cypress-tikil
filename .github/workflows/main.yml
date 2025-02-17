@@ -56,4 +56,4 @@ jobs:
       - name: Install ld
         run: npm install -g lambdatest-cypress-cli
       - name: Run lambdatest command
-        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=true,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }},CLOCK_OUT=${{ inputs.clock_out }},CLOCK_IN=${{ inputs.clock_in }},DATE_DIFF=${{ inputs.date_diff }},REASON=${{ inputs.reason }},WITNESS=${{ inputs.witness }},REVIEWER1=${{ secrets.REVIEWER_1 }},REVIEWER2=${{ secrets.REVIEWER_2 }},COMMENT=${{ inputs.comment }}"
+        run: lambdatest-cypress run --username=gafiliano --ak=${{ secrets.LT_ACCESS_KEY }} --envs "IS_SUBMIT=false,NPP=${{ inputs.npp }},PASSWORD=${{ inputs.password }},CLOCK_OUT=${{ inputs.clock_out }},CLOCK_IN=${{ inputs.clock_in }},DATE_DIFF=${{ inputs.date_diff }},REASON=${{ inputs.reason }},WITNESS=${{ inputs.witness }},REVIEWER1=${{ secrets.REVIEWER_1 }},REVIEWER2=${{ secrets.REVIEWER_2 }},COMMENT=${{ inputs.comment }}"
